@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "e4d0502f-b09c-b648-d633-dfc57ceefb06",
+		"name": "Cancel Reservation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cancel",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "12ccf983-0e97-49ec-a288-c0d0666b460f",
+						"exec": [
+							"console.log(\"Cancel\"+ data.reservation)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d832380-c50c-41b4-8601-f09b3a649543",
+						"exec": [
+							"tests[\"Cancel Reservation\"] = data.reservation;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://adcesbhgwd1.hiw.com:8080/HotelGateway?MessageType=SAI_MSG_IN&PropertyId=LASVN&MessageText=RA%20%0ACF%3A{{reservation}}%2FECHO%2F28JAN19%2F35993%0AAC%3AD%2FECHO%2F0000%2F01%0A&reservation={{reservation}}",
+					"protocol": "http",
+					"host": [
+						"adcesbhgwd1",
+						"hiw",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"HotelGateway"
+					],
+					"query": [
+						{
+							"key": "MessageType",
+							"value": "SAI_MSG_IN"
+						},
+						{
+							"key": "PropertyId",
+							"value": "LASVN"
+						},
+						{
+							"key": "MessageText",
+							"value": "RA%20%0ACF%3A{{reservation}}%2FECHO%2F28JAN19%2F35993%0AAC%3AD%2FECHO%2F0000%2F01%0A"
+						},
+						{
+							"key": "reservation",
+							"value": "{{reservation}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
